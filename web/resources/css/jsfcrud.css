@@ -1,0 +1,126 @@
+/* ==========================================
+   Layout Tecnologias Web - CSS puro (sin p:layout)
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.layout-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+/* ---- NORTE ---- */
+.layout-north {
+    background-color: #1565C0;
+    padding: 16px 20px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #0D47A1;
+}
+
+.app-title {
+    color: #FF1744;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---- CONTENEDOR MEDIO (oeste + centro + este) ---- */
+.layout-middle {
+    display: flex;
+    flex: 1;
+}
+
+/* ---- OESTE ---- */
+.layout-west {
+    width: 150px;
+    min-width: 150px;
+    background-color: #E8E4A0;
+    padding: 12px 10px;
+    border-right: 1px solid #ccc;
+}
+
+.menu-link {
+    display: block;
+    margin: 8px 0;
+    color: #8B0000 !important;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.menu-link:hover {
+    text-decoration: underline;
+}
+
+/* ---- CENTRO ---- */
+.layout-center {
+    flex: 1;
+    padding: 8px;
+    background-color: #f5f5f5;
+    overflow: auto;
+}
+
+/* ---- ESTE ---- */
+.layout-east {
+    width: 100px;
+    min-width: 100px;
+    background-color: #E8E4A0;
+    padding: 10px 8px;
+    border-left: 1px solid #ccc;
+    font-size: 13px;
+    color: #555;
+}
+
+/* ---- SUR ---- */
+.layout-south {
+    background-color: #B0BEC5;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #333;
+    border-top: 1px solid #90A4AE;
+}
+
+/* ==========================================
+   PrimeFaces Panel (cabecera central)
+   ========================================== */
+.ui-widget {
+    font-size: 12px !important;
+}
+
+.ui-panel .ui-panel-titlebar {
+    text-align: center;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #d4d4d4, #b8b8b8) !important;
+    border-bottom: 1px solid #aaa !important;
+}
+
+.ui-widget-header {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* ---- Menubar ---- */
+.main-menubar {
+    margin-bottom: 8px;
+}
+
+/* ---- Botones de la tabla ---- */
+.ui-button {
+    margin-top: 10px !important;
+    margin-right: 4px !important;
+}
