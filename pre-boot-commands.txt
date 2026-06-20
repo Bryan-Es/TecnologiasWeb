@@ -1,0 +1,2 @@
+create-jdbc-connection-pool --datasourceclassname=com.mysql.cj.jdbc.MysqlDataSource --restype=javax.sql.DataSource --property serverName=${MYSQLHOST}:portNumber=${MYSQLPORT}:databaseName=${MYSQLDATABASE}:user=${MYSQLUSER}:password=${MYSQLPASSWORD}:useSSL=false:allowPublicKeyRetrieval=true:useUnicode=true:characterEncoding=UTF-8 empresa_db_pool
+create-jdbc-resource --connectionpoolid=empresa_db_pool jdbc/empresa_db
