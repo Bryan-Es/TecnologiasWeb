@@ -7,8 +7,12 @@ ENV JAVA_TOOL_OPTIONS="-Xmx300m"
 # Instalamos el driver de MySQL en la carpeta global de librerias de Payara
 COPY web/WEB-INF/lib/mysql-connector-j-9.7.0.jar /opt/payara/appserver/glassfish/domains/domain1/lib/
 
-# Script de pre-configuracion: registra el pool JDBC y el recurso ANTES de desplegar el WAR
-COPY pre-boot-commands.txt $PAYARA_PATH/pre-boot-commands.txt
+# Script que genera los pre-boot commands con los valores reales de las env vars
+COPY setup-jdbc.sh /opt/payara/setup-jdbc.sh
+RUN chmod +x /opt/payara/setup-jdbc.sh
 
 # Copiamos el archivo .war generado por NetBeans
 COPY dist/TecnologiasWeb.war $DEPLOY_DIR
+
+# Usamos nuestro script como entrypoint para inyectar el pool JDBC antes de que Payara arranque
+ENTRYPOINT ["/bin/bash", "/opt/payara/setup-jdbc.sh"]
