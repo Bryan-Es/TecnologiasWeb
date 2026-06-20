@@ -7,5 +7,5 @@
         <property name="Password" value="dFMfCrjeVfhGbQjhSHRbHBQLESadqkve"/>
     </jdbc-connection-pool>
     
-    <jdbc-resource connection-pool-name="RailwayPool" jndi-name="jdbc/empresa_db"/>
+    <jdbc-resource pool-name="RailwayPool" jndi-name="jdbc/empresa_db"/>
 </resources>
