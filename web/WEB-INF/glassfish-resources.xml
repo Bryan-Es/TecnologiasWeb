@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
 <resources>
-    <jdbc-connection-pool datasource-classname="com.mysql.cj.jdbc.MysqlDataSource" name="RailwayPool" res-type="javax.sql.DataSource">
-        <property name="URL" value="jdbc:mysql://mysql.railway.internal:3306/railway?allowPublicKeyRetrieval=true&amp;useSSL=false"/>
-        <property name="User" value="root"/>
-        <property name="Password" value="dFMfCrjeVfhGbQjhSHRbHBQLESadqkve"/>
+    <jdbc-connection-pool
+        datasource-classname="com.mysql.cj.jdbc.MysqlDataSource"
+        name="empresa_db_pool"
+        res-type="javax.sql.DataSource"
+        is-isolation-level-guaranteed="true">
+        <property name="serverName"             value="mysql.railway.internal"/>
+        <property name="portNumber"             value="3306"/>
+        <property name="databaseName"           value="railway"/>
+        <property name="user"                   value="root"/>
+        <property name="password"               value="dFMfCrjeVfhGbQjhSHRbHBQLESadqkve"/>
+        <property name="useSSL"                 value="false"/>
+        <property name="allowPublicKeyRetrieval" value="true"/>
+        <property name="useUnicode"             value="true"/>
+        <property name="characterEncoding"      value="UTF-8"/>
     </jdbc-connection-pool>
-    
-    <jdbc-resource pool-name="RailwayPool" jndi-name="jdbc/empresa_db"/>
+
+    <jdbc-resource pool-name="empresa_db_pool" jndi-name="jdbc/empresa_db"/>
 </resources>
