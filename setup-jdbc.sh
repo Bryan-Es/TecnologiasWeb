@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 # Usa la variable PREBOOT_COMMANDS si existe, sino el path por defecto de Payara
 PREBOOT_FILE="${PREBOOT_COMMANDS:-/opt/payara/preboot-commands.txt}"
@@ -19,10 +18,27 @@ create-jdbc-resource --connectionpoolid=empresa_db_pool jdbc/empresa_db
 EOF
 
 echo "[Setup] Comandos JDBC escritos en: $PREBOOT_FILE"
-echo "[Setup] Contenido del archivo pre-boot:"
-cat "$PREBOOT_FILE"
-echo "================================================"
-echo "[Setup] Iniciando Payara..."
 
-# Llama al entrypoint original de Payara pasando todos los argumentos
-exec /opt/payara/entrypoint.sh "$@"
+# Diagnostico: encontrar el entrypoint real de Payara
+echo "[Setup] Buscando entrypoint de Payara..."
+ls -la /opt/payara/ 2>/dev/null || true
+find /opt/payara -maxdepth 2 -name "*.sh" 2>/dev/null | sort || true
+
+# Intentar los paths mas comunes del entrypoint de Payara
+if [ -f "/opt/payara/entrypoint.sh" ]; then
+    echo "[Setup] Usando: /opt/payara/entrypoint.sh"
+    exec /opt/payara/entrypoint.sh "$@"
+elif [ -f "/entrypoint.sh" ]; then
+    echo "[Setup] Usando: /entrypoint.sh"
+    exec /entrypoint.sh "$@"
+elif [ -f "/opt/payara/scripts/entrypoint.sh" ]; then
+    echo "[Setup] Usando: /opt/payara/scripts/entrypoint.sh"
+    exec /opt/payara/scripts/entrypoint.sh "$@"
+elif [ -f "/opt/payara/bin/entrypoint.sh" ]; then
+    echo "[Setup] Usando: /opt/payara/bin/entrypoint.sh"
+    exec /opt/payara/bin/entrypoint.sh "$@"
+else
+    echo "[Setup] ERROR: No se encontro el entrypoint. Contenido de /opt/payara/:"
+    ls -la /opt/payara/
+    exit 1
+fi
