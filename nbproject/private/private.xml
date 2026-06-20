@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/espar/OneDrive/Documentos/NetBeansProjects/TecnologiasWeb/web/index.xhtml</file>
-            <file>file:/C:/Users/espar/OneDrive/Documentos/NetBeansProjects/TecnologiasWeb/web/departamento/Create.xhtml</file>
-            <file>file:/C:/Users/espar/OneDrive/Documentos/NetBeansProjects/TecnologiasWeb/web/departamento/Edit.xhtml</file>
-            <file>file:/C:/Users/espar/OneDrive/Documentos/NetBeansProjects/TecnologiasWeb/web/departamento/List.xhtml</file>
-            <file>file:/C:/Users/espar/OneDrive/Documentos/NetBeansProjects/TecnologiasWeb/web/template.xhtml</file>
+            <file>file:/C:/Users/espar/OneDrive/Documentos/NetBeansProjects/TecnologiasWeb/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/espar/OneDrive/Documentos/NetBeansProjects/TecnologiasWeb/web/WEB-INF/glassfish-web.xml</file>
+            <file>file:/C:/Users/espar/OneDrive/Documentos/NetBeansProjects/TecnologiasWeb/web/WEB-INF/glassfish-resources.xml</file>
         </group>
     </open-files>
 </project-private>
