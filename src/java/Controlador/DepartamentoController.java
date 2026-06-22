@@ -74,9 +74,7 @@ public class DepartamentoController implements Serializable {
     }
 
     public List<Departamento> getItems() {
-        if (items == null) {
-            items = getFacade().findAll();
-        }
+        items = getFacade().findAll(); // Siempre consulta BD para que todos los dispositivos vean datos actualizados
         return items;
     }
 

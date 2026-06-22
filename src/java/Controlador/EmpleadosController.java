@@ -74,9 +74,7 @@ public class EmpleadosController implements Serializable {
     }
 
     public List<Empleados> getItems() {
-        if (items == null) {
-            items = getFacade().findAll();
-        }
+        items = getFacade().findAll(); // Siempre consulta BD para que todos los dispositivos vean datos actualizados
         return items;
     }
 
